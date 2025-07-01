@@ -1,0 +1,274 @@
+<!-- landing/templates/landing/landing_page.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Trust - Real Estate Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}"> {# Use landing app static #}
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Optional: Link to a specific font if used in design -->
+    {# <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> #}
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top"> {# fixed-top to keep it visible #}
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                {# Use your actual logo path #}
+                <img src="{% static 'website/images/logo.svg' %}" alt="Real Trust Logo" height="40"> {# Adjust height as needed #}
+           </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center"> {# Center items vertically #}
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    {# Newsletter link can point to the footer section #}
+                    <li class="nav-item"><a class="nav-link" href="#footer">Newsletter</a></li>
+                    {# Add the CTA button #}
+                    <li class="nav-item ms-lg-3"> {# Add margin on larger screens #}
+                         <a class="btn btn-primary btn-nav" href="#contact">Get a Free Consultation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section text-white d-flex align-items-center" style="min-height: 100vh; background: url('{% static 'website/images/pexels-brett-sayles-2881232-1.svg' %}') no-repeat center center/cover;">
+
+        <div class="container">
+            <div class="row align-items-center"> {# Vertically align content #}
+                <div class="col-md-7">
+                    <h1>Consultation, Design & Marketing</h1>
+                    <p class="lead">Your trusted partner in real estate services.</p>
+                    {# Optional: Add CTA buttons if needed #}
+                </div>
+                <div class="col-md-5">
+                   {# Placeholder for image/illustration from the reference #}
+                    {# Example: <img src="{% static 'website/images/pexels-brett-sayles-2881232-3.svg' %}" alt="Hero Illustration" class="img-fluid"> #}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Not Your Average Realtor / Why Choose Us -->
+    <section class="py-5 why-choose-us-section position-relative text-white">
+        <div class="blur-overlay"></div>
+
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Us?</h2>
+
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="icon-box">
+                         <!-- Replace with actual icons or images from your design -->
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i> {# Example Font Awesome Icon #}
+                        <h4>Potential ROI</h4>
+                        <p>Description about ROI benefits based on the reference.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                     <div class="icon-box">
+                         <i class="fas fa-palette fa-3x text-primary mb-3"></i> {# Example Font Awesome Icon #}
+                        <h4>Design</h4>
+                        <p>Description about design services based on the reference.</p>
+                    </div>
+                </div>
+                 <div class="col-md-4 mb-4">
+                     <div class="icon-box">
+                         <i class="fas fa-bullhorn fa-3x text-primary mb-3"></i> {# Example Font Awesome Icon #}
+                        <h4>Marketing</h4>
+                        <p>Description about marketing strategies based on the reference.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- About Us -->
+    <section class="py-5 bg-light about-us-section">
+        <div class="container">
+             <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                     {# Placeholder for image/group photo #}
+                     <img src="{% static 'website/images/young-couple-examining-blueprints-with-real-estate-agent-while-buying-new-home 1.svg' %}" alt="About Us Image" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <p class="lead">We build dynamics with clients and foster success through trust. We provide quality services and, importantly, maintain those relationships by communicating effectively.</p>
+                    <!-- Add more about us details if needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Our Projects Section -->
+    <section id="projects" class="py-5 projects-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Projects</h2>
+            <p class="text-center mb-5">We know what buyers are looking for and suggest projects that will bring clients top dollar for the sale of their homes.</p>
+    
+            <div class="row justify-content-center">
+                {% for project in projects %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card project-card h-100">
+                        
+                        {% if project.sale_status %}
+                            <span class="sale-status badge {% if project.sale_status == 'SOLD' %}bg-danger{% else %}bg-warning{% endif %}">{{ project.sale_status }}</span>
+                        {% endif %}
+                        
+                        <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.name }}">
+                        
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ project.name }}</h5>
+                            <p class="card-text text-muted small flex-grow-1">{{ project.description }}</p>
+                            <a href="{% url 'project_detail' project.id %}" class="btn btn-secondary mt-auto">READ MORE</a>
+                        </div>
+    
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center">No projects available yet.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Happy Clients Section -->
+    <section id="clients" class="py-5 clients-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Happy Clients</h2>
+            <div class="row justify-content-center">
+                {% for client in clients %}
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+                    <div class="card client-testimonial-card h-100">
+    
+                        <img src="{{ client.image.url }}" class="card-img-top rounded-circle mx-auto mt-3" alt="{{ client.name }}">
+    
+                        <div class="card-body d-flex flex-column text-center">
+                            <p class="card-text small text-muted flex-grow-1">{{ client.description|truncatewords:20 }}</p>
+                            <h6 class="card-title mb-0 mt-auto">{{ client.name }}</h6>
+                            <p class="card-text small text-primary">{{ client.designation }}</p>
+                        </div>
+    
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center">No client testimonials available yet.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-5 bg-light contact-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-7 col-lg-6"> {# Limit form width #}
+                    <div class="card p-4">
+                        <h2 class="card-title text-center mb-4">Get a Free Consultation</h2>
+                        {# Message div for AJAX feedback #}
+                         <div id="contact-form-message" class="mt-3 text-center" style="display: none;"></div>
+                        {# Add data-submit-url attribute for JavaScript #}
+                        <form id="contact-form" method="POST" data-submit-url="{% url 'contact_submit' %}">
+                            {% csrf_token %} {# Django CSRF token #}
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="fullName" placeholder="Full Name" required> {# Name attribute matches JSON key in JS/View #}
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" name="email" placeholder="Enter Email Address" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" name="mobile" placeholder="Mobile Number"> {# Changed to type="tel" #}
+                            </div>
+                             <div class="mb-3">
+                                <input type="text" class="form-control" name="city" placeholder="Area, City">
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Get Quick Quote</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section  -->
+    {# Renamed from Newsletter Subscription Section to Footer #}
+    <footer id="footer" class="py-5 footer-section">
+        <div class="container">
+            <div class="row align-items-center mb-4">
+                {# Footer Logo / Identity #}
+                <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                    {# Use your actual footer logo path (often a white version for dark backgrounds) #}
+                    <img src="{% static 'website/images/logo.svg' %}" alt="Real Trust Logo" class="img-fluid" style="max-height: 40px;">
+                    {# Social Icons #}
+                    <div class="social-icons mt-3">
+                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                         <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                         {# Add other icons like LinkedIn etc #}
+                     </div>
+                </div>
+                 {# Footer Navigation #}
+                 <div class="col-md-4 mb-4 mb-md-0 text-center text-md-start">
+                     <h5 class="text-white mb-3">Quick Links</h5>
+                     <ul class="list-unstyled mb-0">
+                         <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+                         <li><a href="#projects" class="text-white-50 text-decoration-none">Projects</a></li>
+                         <li><a href="#clients" class="text-white-50 text-decoration-none">Clients</a></li>
+                         <li><a href="#contact" class="text-white-50 text-decoration-none">Contact</a></li>
+                          <li><a href="#footer" class="text-white-50 text-decoration-none">Newsletter</a></li>
+                     </ul>
+                 </div>
+                {# Newsletter Form #}
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3 text-center text-md-start">Subscribe Us</h5>
+                     {# Message div for AJAX feedback #}
+                    <div id="newsletter-message" class="mt-2 text-center" style="display: none;"></div>
+                    {# Add data-submit-url attribute for JavaScript #}
+                    <form id="newsletter-form" method="POST" data-submit-url="{% url 'subscribe' %}" class="d-flex flex-column flex-md-row align-items-stretch">
+                        {% csrf_token %}
+                        <input type="email" name="email" class="form-control me-md-2 mb-2 mb-md-0" placeholder="Enter Email Address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr> {# Divider line #}
+            {# Copyright #}
+            <div class="row mt-4">
+                <div class="col-12 text-center text-white-50">
+                    <p class="mb-0">© {% now "Y" %} Real Trust. All rights reserved.</p> {# Use {% now "Y" %} for current year #}
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS for AJAX forms -->
+    <script src="{% static 'website/js/script.js' %}"></script>
+
+
+</body>
+</html>

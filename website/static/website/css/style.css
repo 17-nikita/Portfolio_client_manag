@@ -1,0 +1,274 @@
+/* landing/static/landing/css/style.css */
+
+/* --- General Styles --- */
+body {
+    /* Optional: Add a global font from the design */
+    /* font-family: 'YourChosenFont', sans-serif; */
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+}
+
+section {
+    padding: 80px 0; /* Consistent vertical padding for sections */
+}
+
+.bg-light { /* Adjust Bootstrap light background if needed */
+    background-color: #f8f9fa !important;
+}
+
+.bg-dark { /* Adjust Bootstrap dark background if needed */
+     background-color: #343a40 !important;
+}
+
+
+/* --- Navigation Bar --- */
+.navbar-brand img {
+    height: 40px; /* Adjust logo size */
+}
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem; /* Adjust nav link spacing */
+}
+.navbar-nav .nav-item:last-child .nav-link {
+    /* Add margin to the last nav item if needed, e.g., before a button */
+    margin-right: 1rem;
+}
+/* Style for the "Get a Free Consultation" button in the nav */
+.btn-nav {
+    /* Add custom styles if different from default primary button */
+    /* margin-left: 1rem; */
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    color: white;
+    min-height: 60vh; /* Minimum height */
+    display: flex; /* Use flexbox to vertically center content */
+    align-items: center;
+    padding: 100px 0; /* Adjust padding */
+    /* Background image handled in HTML inline style for simplicity */
+}
+
+/* Overlay for the hero background image */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative; /* Ensure content is above overlay */
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 3.5em; /* Adjust font size */
+    margin-bottom: 15px;
+}
+
+.hero-section p.lead {
+    font-size: 1.25em; /* Adjust lead paragraph size */
+}
+
+/* --- Why Choose Us Section --- */
+.why-choose-us-section .icon-box {
+    /* Optional: Add padding, border, or background to mimic the reference */
+    padding: 20px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 8px; */
+    /* background-color: #fff; */
+    transition: transform 0.3s ease; /* Optional hover effect */
+}
+
+.why-choose-us-section .icon-box:hover {
+     transform: translateY(-5px); /* Optional hover effect */
+}
+
+.why-choose-us-section .icon-box i {
+    color: #007bff; /* Bootstrap primary color */
+}
+
+
+/* --- About Us Section --- */
+/* Adjust layout in HTML using Bootstrap grid */
+
+
+/* --- Projects Section --- */
+.projects-section .card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    transition: transform 0.3s ease; /* Optional hover effect */
+}
+
+.projects-section .card:hover {
+    transform: translateY(-5px); /* Optional hover effect */
+}
+
+.projects-section .card-img-top {
+    width: 100%;
+    height: 250px; /* Fixed height for images */
+    object-fit: cover; /* Crop image nicely */
+}
+
+.project-card .sale-status {
+    position: absolute;
+    top: 15px; /* Adjust position */
+    left: 15px; /* Adjust position */
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 10; /* Ensure badge is above image */
+}
+
+.project-card .sale-status.bg-warning { /* Bootstrap bg-warning for SALE */
+    /* Use default Bootstrap warning color */
+}
+
+.project-card .sale-status.bg-danger { /* Use Bootstrap bg-danger for SOLD (or choose another color) */
+    background-color: #dc3545 !important; /* Bootstrap danger color */
+}
+
+
+/* --- Happy Clients Section --- */
+.clients-section .card {
+     border: none; /* No border for client cards */
+     background-color: transparent; /* Transparent background */
+}
+.clients-section .card img {
+    width: 96px; /* Specified size */
+    height: 96px; /* Specified size */
+    object-fit: cover;
+    border: 3px solid #007bff; /* Example primary color border */
+}
+
+.clients-section .card-text.small.text-muted {
+    font-style: italic; /* Italicize testimonial text */
+}
+.clients-section .card-text.small.text-primary {
+    font-weight: bold; /* Bold designation */
+}
+
+
+/* --- Contact Form Section --- */
+.contact-form-section .card {
+    background-color: #e9ecef; /* Light background color */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.contact-form-section .form-control {
+     border-radius: 0.25rem; /* Standard Bootstrap border-radius */
+}
+
+/* Style success/error messages */
+#contact-form-message, #newsletter-message {
+    font-weight: bold;
+}
+.text-success {
+    color: #198754 !important; /* Bootstrap success color */
+}
+.text-danger {
+     color: #dc3545 !important; /* Bootstrap danger color */
+}
+
+
+/* --- Footer Section (Combined Newsletter + Footer) --- */
+.footer-section {
+    background-color: #343a40; /* Dark background */
+    color: rgba(255, 255, 255, 0.75); /* Lighter text color */
+}
+
+.footer-section a {
+     color: rgba(255, 255, 255, 0.75);
+     text-decoration: none;
+     transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+     color: white;
+}
+
+.footer-section .social-icons a {
+    font-size: 1.8em; /* Larger icons */
+    margin-right: 15px; /* Space between icons */
+}
+.footer-section .social-icons a:last-child {
+     margin-right: 0;
+}
+
+.footer-section .list-unstyled li {
+    margin-bottom: 8px; /* Space between list items */
+}
+.footer-section .list-unstyled li:last-child {
+     margin-bottom: 0;
+}
+
+.footer-section .subscribe-form .form-control,
+.footer-section .subscribe-form .btn {
+    /* Adjust form element styling within footer if needed */
+}
+
+.footer-section hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Lighter horizontal rule */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+    section {
+        padding: 40px 0; /* Less padding on mobile */
+    }
+    .why-choose-us-section .icon-box {
+        margin-bottom: 30px; /* Space out boxes on mobile */
+    }
+    .footer-section .text-md-start {
+        text-align: center !important; /* Center subscribe title on mobile */
+        margin-bottom: 1rem;
+    }
+     .footer-section .social-icons {
+        text-align: center; /* Center social icons on mobile */
+        margin-bottom: 1rem;
+     }
+     .footer-section .list-unstyled {
+         text-align: center; /* Center footer nav on mobile */
+          margin-bottom: 1rem;
+     }
+     .footer-section .subscribe-form {
+         flex-direction: column; /* Stack form elements on mobile */
+     }
+     .footer-section .subscribe-form .form-control {
+         margin-right: 0 !important;
+         margin-bottom: 10px;
+     }
+}
+
+.why-choose-us-section {
+    background: url('../images/pexels-andres-ayrton-6578391.svg') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.blur-overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px); /* Adjust blur intensity */
+    background-color: rgba(0, 0, 0, 0.3); /* Optional: dark tint for better contrast */
+    z-index: 1;
+}
+
+.why-choose-us-section .container {
+    position: relative;
+    z-index: 2;
+}
