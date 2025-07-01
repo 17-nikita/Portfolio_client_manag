@@ -41,7 +41,7 @@ Built using Django's built-in admin site, accessible via `/admin/`.
 
 *   **Backend:** Python, Django
 *   **Frontend:** HTML, CSS, JavaScript, Bootstrap 5
-*   **Database:** [Specify Database Used Here, e.g., SQLite (default), PostgreSQL, MongoDB Atlas (preferred as per task)]
+*   **Database:**   MongoDB Atlas (preferred as per task)]
 
 ## Setup Instructions
 
@@ -103,11 +103,6 @@ The landing page will be available at `http://127.0.0.1:8000/` and the admin pan
 
 *   **Image Cropping:** [State whether image cropping is implemented for Project images on upload in the admin panel, e.g., "Implemented image cropping for Project images on upload in the admin panel to the specified 450x350 ratio."]
 
-## Deployment
-
-The application is deployed on [Mention the cloud platform used, e.g., Heroku, AWS EC2, etc.].
-
-*   **Deployed App URL:** [Provide the public URL of your deployed application]
 
 ## Evaluation Notes
 
@@ -118,5 +113,4 @@ The application is deployed on [Mention the cloud platform used, e.g., Heroku, A
 
 ## Links
 
-*   **Repository URL:** <Your GitHub/GitLab/Bitbucket Repo URL Here> *(Ensure this link is public)*
-*   **Deployed Application URL:** [Link to your deployed app] *(Ensure this link is public and files/images are accessible)*
+*   **Repository URL:** https://github.com/17-nikita/Portfolio_client_manag
